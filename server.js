@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('./routes/api'); // <-- Vai carregar nossas rotas
 
 const app = express();
-const PORT = process.env.PORT || 8080; // <-- MUDANÇA AQUI
+const PORT = process.env.PORT || 8080; // <-- Porta 8080
 
 // Configurações do Express
 app.set('view engine', 'ejs');
@@ -19,14 +19,7 @@ app.get('/financeiro', (req, res) => {
     res.render('financeiro');
 });
 
-// Sincroniza o banco de dados e inicia o servidor
-// (Essa parte foi adicionada no passo a passo completo, vou mantê-la aqui)
-const sequelize = require('./config/database'); 
-sequelize.sync().then(() => { 
-    app.listen(PORT, () => {
-        // O console.log agora mostrará a nova porta
-        console.log(`Servidor rodando na porta ${PORT}`);
-    });
-}).catch(err => {
-    console.error('Erro ao conectar com o banco de dados:', err);
+// Inicia o servidor (sem banco de dados)
+app.listen(PORT, () => {
+    console.log(`>>> Servidor rodando na porta ${PORT}. Conectado SOMENTE ao Asaas.`);
 });
