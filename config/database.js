@@ -1,3 +1,4 @@
+
 const { Sequelize } = require('sequelize');
 require('dotenv').config(); // Carrega as senhas do .env
 
