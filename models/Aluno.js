@@ -15,11 +15,8 @@ const Aluno = sequelize.define('Aluno', {
         type: DataTypes.STRING,
         allowNull: false
     },
-<<<<<<< HEAD
-=======
     // ... outros dados da matrícula (CPF, email, etc.)
 
->>>>>>> f498bbe76ecbcca0cd1542a106ec4e6d544b291a
     // --- A "PONTE" ---
     // Aqui vamos guardar o ID que o Asaas criou (ex: cus_12345)
     asaasCustomerId: {
