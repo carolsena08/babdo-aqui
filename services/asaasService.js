@@ -1,7 +1,7 @@
 const axios = require('axios');
-require('dotenv').config();
+require('dotenv').config(); // Carrega as senhas do .env
 
-// Cria uma instância do Axios pré-configurada para a API do Asaas
+// Configura o "telefone" com o endereço e a senha já prontos
 const asaasAPI = axios.create({
     baseURL: process.env.ASAAS_API_URL,
     headers: {
@@ -9,8 +9,6 @@ const asaasAPI = axios.create({
         'access_token': process.env.ASAAS_API_KEY
     }
 });
-
-// --- FUNÇÕES QUE SERÃO PUXADAS PELA API ---
 
 /**
  * @description Busca todos os clientes (alunos) cadastrados no Asaas.
@@ -30,10 +28,8 @@ const getClientes = async () => {
  * @description Busca todas as cobranças (receitas) no Asaas.
  * @returns {Promise<Array>} Lista de cobranças.
  */
-
 const getCobrancas = async () => {
     try {
-        // Você pode adicionar filtros aqui, como ?status=PAID ou ?status=PENDING
         const response = await asaasAPI.get('/payments');
         return response.data.data;
     } catch (error) {
@@ -56,8 +52,6 @@ const criarCobranca = async (dadosCobranca) => {
         throw error;
     }
 };
-
-// Adicione aqui outras funções conforme necessário (ex: buscar despesas, criar clientes, etc.)
 
 module.exports = {
     getClientes,
