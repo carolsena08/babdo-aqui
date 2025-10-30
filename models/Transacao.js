@@ -21,13 +21,11 @@ const Transacao = sequelize.define('Transacao', {
     data: {
         type: DataTypes.DATEONLY,
         allowNull: false
-<<<<<<< HEAD
     }
-=======
-    },
-    // Não precisamos de "tipo", pois esta tabela será SÓ para Despesas
-    // As Receitas vivem no Asaas
->>>>>>> f498bbe76ecbcca0cd1542a106ec4e6d544b291a
+    // A chave extra e o comentário que estavam aqui foram removidos.
 });
+
+// O comentário pertence aqui fora:
+// Esta tabela é só para Despesas. As Receitas vivem no Asaas.
 
 module.exports = Transacao;
